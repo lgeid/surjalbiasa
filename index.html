@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Jalan Alex qiu2 Makassar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+
+        .action-bar {
+            width: 210mm;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            background-color: #A50034; /* Warna Merah LG */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #800028;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 15mm 15mm 10mm 15mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Top Layout */
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .lg-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #A50034;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .city-title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .company-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .doc-title {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .right-header {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .date-row, .recipient-row {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .recipient-box {
+            margin-top: 5px;
+        }
+
+        .recipient-box label {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Inputs Styling */
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px dotted #555;
+            outline: none;
+            padding: 2px 4px;
+            font-size: 13px;
+            background: transparent;
+            width: 100%;
+        }
+
+        input[type="text"]:focus {
+            background-color: #f0f7ff;
+            border-bottom: 1px solid #A50034;
+        }
+
+        .vehicle-line {
+            font-size: 13px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .vehicle-line input {
+            display: inline-block;
+        }
+
+        /* Table Styling */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .items-table th, .items-table td {
+            border: 1px solid #333;
+            padding: 4px 6px;
+        }
+
+        .items-table th {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+
+        .items-table td input {
+            border: none;
+            border-bottom: none;
+            padding: 2px;
+        }
+
+        .col-qty {
+            width: 18%;
+            text-align: center;
+        }
+
+        .col-qty input {
+            text-align: center;
+        }
+
+        .col-name {
+            width: 82%;
+        }
+
+        /* Signatures */
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 0 40px;
+        }
+
+        .sig-box {
+            text-align: center;
+            width: 200px;
+        }
+
+        .sig-title {
+            font-size: 13px;
+            margin-bottom: 60px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #888;
+            padding-top: 5px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #444;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .action-bar, .btn-add-row, .btn-del {
+                display: none !important;
+            }
+            .page {
+                box-shadow: none;
+                padding: 10mm;
+                width: 100%;
+                min-height: auto;
+            }
+            input[type="text"] {
+                border-bottom: none !important;
+            }
+            .items-table th {
+                background-color: transparent !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tombol Aksi -->
+    <div class="action-bar">
+        <span style="font-weight: bold; color: #A50034;">Surat Jalan - PT LG Electronics Service Indonesia Cabang Makassar</span>
+        <div>
+            <button class="btn btn-secondary" onclick="addRow()">+ Tambah Baris</button>
+            <button class="btn" onclick="window.print()">Cetak / Simpan PDF</button>
+        </div>
+    </div>
+
+    <!-- Halaman Dokumen Utama -->
+    <div class="page">
+        <div>
+            <!-- Header Grid -->
+            <div class="header-grid">
+                <!-- Sisi Kiri -->
+                <div>
+                    <div class="brand-section">
+                        <div class="lg-logo">ALEX</div>
+                        <div class="city-title">MAKASSAR</div>
+                    </div>
+                    <div class="company-name"> Alex Qiu2 MAKASSAR</div>
+                    
+                    <div class="doc-title">
+                        <span>SURAT JALAN No.</span>
+                        <input type="text" style="width: 180px;" placeholder=".......................">
+                    </div>
+                </div>
+
+                <!-- Sisi Kanan -->
+                <div class="right-header">
+                    <div class="date-row">
+                        <span style="white-space: nowrap;">Makassar,&nbsp;</span>
+                        <input type="text" placeholder="......................................................">
+                    </div>
+                   <div class="recipient-box">
+    <!-- Baris Kepada Yth + PT. LG ELECTRONICS sejajar -->
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+        <label style="white-space: nowrap; font-size: 13px; margin: 0;">Kepada Yth :</label>
+        <input type="text" value="PT. LG ELECTRONICS" style="font-weight: bold;">
+    </div>
+    <!-- Baris lanjutan untuk Alamat / Penerima -->
+    <input type="text" style="margin-bottom: 4px;" placeholder="......................................................................">
+    <input type="text" placeholder="......................................................................">
+</div>
+
+                </div>
+            </div>
+
+            <!-- Baris Keterangan Kendaraan -->
+            <div class="vehicle-line">
+                Kami kirimkan barang-barang tersebut dibawah ini dengan kendaraan 
+                <input type="text" style="flex-grow: 1;" placeholder="......................................................">
+                No.
+                <input type="text" style="width: 150px;" placeholder="........................">
+            </div>
+
+            <!-- Tabel Barang -->
+            <table class="items-table" id="itemsTable">
+                <thead>
+                    <tr>
+                        <th class="col-qty">BANYAKNYA</th>
+                        <th class="col-name">NAMA BARANG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Default 10 Baris -->
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                    <tr><td class="col-qty"><input type="text"></td><td class="col-name"><input type="text"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bagian Bawah: Tanda Tangan & Footer -->
+        <div>
+            <div class="signatures">
+                <div class="sig-box">
+                    <div class="sig-title">Tanda Terima</div>
+                    <input type="text" style="text-align: center;" placeholder="( .................................... )">
+                </div>
+                <div class="sig-box">
+                    <div class="sig-title">Hormat Kami</div>
+                    <input type="text" style="text-align: center;" placeholder="( .................................... )">
+                </div>
+            </div>
+
+            <!-- Footer Alamat -->
+            <div class="footer">
+                <div>Jl. Jend. Sudirman No. 10, Makassar, Sulawesi Selatan. Telp: (0411) XXX-XXXX</div>
+                <div>Original: e-Jurnal</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addRow() {
+            const tbody = document.querySelector('#itemsTable tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="col-qty"><input type="text"></td>
+                <td class="col-name"><input type="text"></td>
+            `;
+            tbody.appendChild(tr);
+        }
+    </script>
+</body>
+</html>
